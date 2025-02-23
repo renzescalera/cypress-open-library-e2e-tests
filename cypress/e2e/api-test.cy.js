@@ -15,7 +15,7 @@ describe("API e2e test", () => {
 
   it("Retrieve a non-existent Book", () => {
     cy.generateRandomString(10).then((invalidBookTitle) => {
-      // TODO: Maybe worth it to move it to POM
+      // TODO: Maybe worth it to move it to POM - to avoid nesting
       const retrieveInvalidBookTitleRequestObject = {
         method: "GET",
         endpoint: `/search.json?title=${encodeURIComponent(invalidBookTitle)}`,
@@ -39,6 +39,7 @@ describe("API e2e test", () => {
 
   it("Retrieve an Author using an invalid key", () => {
     cy.generateRandomString(10).then((invalidAuthorKey) => {
+      // TODO: Maybe worth it to move it to POM - to avoid nesting
       const retrieveInvalidAuthorDataRequestObject = {
         method: "GET",
         endpoint: `/authors/${invalidAuthorKey}.json`,
