@@ -1,0 +1,19 @@
+{
+  "books": [
+    {
+      "title": "Harry Potter",
+      "author": "Rowling",
+      "website": "http://www.jkrowling.com/"
+    },
+    {
+      "title": "The Hobbit",
+      "author": "Tolkien",
+      "website": "http://www.tolkienestate.com/"
+    },
+    {
+      "title": "Mary of Scotland",
+      "author": "Anderson",
+      "website": null
+    }
+  ]
+}
