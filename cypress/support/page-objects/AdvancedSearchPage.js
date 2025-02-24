@@ -24,7 +24,7 @@ class AdvancedSearch {
   }
 
   getPersonField() {
-    return this.cy.get("#qtop-place");
+    return this.cy.get("#qtop-person");
   }
 
   getPublisherField() {

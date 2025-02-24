@@ -1,13 +1,3 @@
-Cypress.Commands.add("generateRandomString", (length) => {
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-  // Generates a random string of specified length using characters from the 'characters' string.
-  return Array.from({ length }, () =>
-    characters.charAt(Math.floor(Math.random() * characters.length))
-  ).join("");
-});
-
 Cypress.Commands.add("customApiRequest", (requestObject) => {
   const { method, endpoint, body } = requestObject;
 

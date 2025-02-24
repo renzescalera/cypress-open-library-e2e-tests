@@ -6,6 +6,10 @@ class SearchBooks {
   getFirstResultAuthor() {
     return this.cy.get('.searchResultItem:first-child [itemprop="author"] a');
   }
+
+  getErrorMessage() {
+    return this.cy.get(".red");
+  }
 }
 
 export default SearchBooks;
