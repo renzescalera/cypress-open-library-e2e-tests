@@ -34,6 +34,30 @@ class AdvancedSearch {
   getSearchButton() {
     return this.cy.get(".cta-btn--search");
   }
+
+  fillAdvancedSearchForm(fields = {}) {
+    if (typeof fields !== "object") {
+      throw new Error(
+        "Invalid input: Expected an object with search parameters."
+      );
+    }
+
+    const advancedSearchFieldSelectors = {
+      title: this.getTitleField(),
+      author: this.getAuthorField(),
+      isbn: this.getIsbnField(),
+      subject: this.getSubjectField(),
+      place: this.getPlaceField(),
+      person: this.getPersonField(),
+      publisher: this.getPublisherField(),
+    };
+
+    Object.entries(fields).forEach(([key, value]) => {
+      if (value && advancedSearchFieldSelectors[key]) {
+        advancedSearchFieldSelectors[key].type(value);
+      }
+    });
+  }
 }
 
 export default AdvancedSearch;

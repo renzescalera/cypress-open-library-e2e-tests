@@ -32,6 +32,14 @@ class Author {
       .should("be.visible")
       .click();
   }
+
+  bookTitlesInAuthorPage() {
+    return this.cy.get(".resultTitle");
+  }
+
+  validateFirstResultBookTitle(title) {
+    return this.bookTitlesInAuthorPage().first().should("contain", title);
+  }
 }
 
 export default Author;
