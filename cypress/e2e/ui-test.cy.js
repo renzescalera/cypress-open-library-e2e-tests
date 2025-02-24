@@ -1,6 +1,7 @@
 import {
   advancedSearch,
   author,
+  generateTestData,
   searchBooks,
 } from "../support/page-objects/PageIndex";
 
@@ -47,5 +48,24 @@ describe("UI e2e test", () => {
     author.validateFirstResultBookTitle(expectedBookTitle);
   });
 
-  // it('Retrieve No books directly matched your search', () => {})
+  it("Should get an error message by retrieving a non-existent book using advanced search", () => {
+    // Random strings are used to advanced search
+    const invalidAdvancedSearchDataObject = {
+      isbn: generateTestData.generateRandomString(5),
+      subject: generateTestData.generateRandomString(3),
+      place: generateTestData.generateRandomString(8),
+      person: generateTestData.generateRandomString(4),
+      publisher: generateTestData.generateRandomString(10),
+    };
+
+    advancedSearch.fillAdvancedSearchForm(invalidAdvancedSearchDataObject);
+
+    advancedSearch.getSearchButton().should("be.visible").click();
+
+    // Validating the error message
+    searchBooks
+      .getErrorMessage()
+      .should("be.visible")
+      .and("contain", "No books directly matched your search");
+  });
 });

@@ -1,3 +1,5 @@
+import { generateTestData } from "../support/page-objects/PageIndex";
+
 describe("API e2e test", () => {
   it("Should Search different Books and Validate corresponding Author data", () => {
     cy.fixture("books-data.json").then((booksData) => {
@@ -14,60 +16,58 @@ describe("API e2e test", () => {
   });
 
   it("Retrieve a non-existent Book", () => {
-    cy.generateRandomString(10).then((invalidBookTitle) => {
-      // TODO: Maybe worth it to move it to POM - to avoid nesting
-      const retrieveInvalidBookTitleRequestObject = {
-        method: "GET",
-        endpoint: `/search.json?title=${encodeURIComponent(invalidBookTitle)}`,
-      };
+    const invalidBookTitle = generateTestData.generateRandomString(10);
 
-      cy.customApiRequest(retrieveInvalidBookTitleRequestObject).then(
-        (response) => {
-          const responseBody = response.body;
+    const retrieveInvalidBookTitleRequestObject = {
+      method: "GET",
+      endpoint: `/search.json?title=${encodeURIComponent(invalidBookTitle)}`,
+    };
 
-          expect(response.status).to.eq(
-            200,
-            "Expected 200 status code for non-existent book"
-          );
+    cy.customApiRequest(retrieveInvalidBookTitleRequestObject).then(
+      (response) => {
+        const responseBody = response.body;
 
-          expect(responseBody.docs.length).to.equal(0);
-          expect(responseBody.numFound).to.equal(0);
-        }
-      );
-    });
+        expect(response.status).to.eq(
+          200,
+          "Expected 200 status code for non-existent book"
+        );
+
+        expect(responseBody.docs.length).to.equal(0);
+        expect(responseBody.numFound).to.equal(0);
+      }
+    );
   });
 
   it("Retrieve an Author using an invalid key", () => {
-    cy.generateRandomString(10).then((invalidAuthorKey) => {
-      // TODO: Maybe worth it to move it to POM - to avoid nesting
-      const retrieveInvalidAuthorDataRequestObject = {
-        method: "GET",
-        endpoint: `/authors/${invalidAuthorKey}.json`,
-      };
+    const invalidAuthorKey = generateTestData.generateRandomString(10);
 
-      cy.customApiRequest(retrieveInvalidAuthorDataRequestObject).then(
-        (response) => {
-          expect(response.status).to.eq(
-            404,
-            "Expected 404 status code for invalid author"
-          );
+    const retrieveInvalidAuthorDataRequestObject = {
+      method: "GET",
+      endpoint: `/authors/${invalidAuthorKey}.json`,
+    };
 
-          // Ensure the response body is properly parsed before validation
-          let responseBody;
+    cy.customApiRequest(retrieveInvalidAuthorDataRequestObject).then(
+      (response) => {
+        expect(response.status).to.eq(
+          404,
+          "Expected 404 status code for invalid author"
+        );
 
-          try {
-            responseBody = JSON.parse(response.body); // Convert a stringified JSON into an actual object.
-          } catch (e) {
-            responseBody = response.body; // If already an object, use as is.
-          }
+        // Ensure the response body is properly parsed before validation
+        let responseBody;
 
-          expect(responseBody).to.have.property("error", "notfound");
-          expect(responseBody).to.have.property(
-            "key",
-            `/authors/${invalidAuthorKey}`
-          );
+        try {
+          responseBody = JSON.parse(response.body); // Convert a stringified JSON into an actual object.
+        } catch (e) {
+          responseBody = response.body; // If already an object, use as is.
         }
-      );
-    });
+
+        expect(responseBody).to.have.property("error", "notfound");
+        expect(responseBody).to.have.property(
+          "key",
+          `/authors/${invalidAuthorKey}`
+        );
+      }
+    );
   });
 });
