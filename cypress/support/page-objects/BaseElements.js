@@ -2,7 +2,7 @@ class BaseElements {
   constructor(cy) {
     this.cy = cy;
   }
-
+  // TODO: This base elements might not be needed
   getEmailField() {
     return this.cy.get("#email");
   }
