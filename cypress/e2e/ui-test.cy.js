@@ -1,5 +1,11 @@
-import { advancedSearch, author } from "../support/page-objects/PageIndex";
+import {
+  advancedSearch,
+  author,
+  searchBooks,
+} from "../support/page-objects/PageIndex";
+
 // TODO: don't forget: The framework should produce proper test reports.
+
 describe("UI e2e test", () => {
   beforeEach(() => {
     cy.visit("/advancedsearch");
@@ -12,6 +18,9 @@ describe("UI e2e test", () => {
       author: "Rowling",
     };
 
+    const sortingOption = "Top Rated";
+    const expectedBookTitle = "Harry Potter and the Prisoner of Azkaban";
+
     // Searching for a book and author using the above object
     advancedSearch.fillAdvancedSearchForm(
       advancedSearchForBookTitleAndAuthorObject
@@ -22,24 +31,20 @@ describe("UI e2e test", () => {
     cy.wait("@partials");
 
     // Selecting the Author of the first search result
-    cy.get('.searchResultItem:first-child [itemprop="author"] a') // TODO: Move this to POM - probably in books
-      .should("be.visible")
-      .click();
+    searchBooks.getFirstResultAuthor().should("be.visible").click();
 
     cy.wait("@partials");
 
     // Sorting Author Works by Top Rated
-    author.sortWorksByOptions("Top Rated");
+    author.sortWorksByOptions(sortingOption);
 
     cy.wait("@partials");
 
     // Validating that the current sorting option is Top Rated
-    author.getSortDropdown().should("contain", "Top Rated"); // TODO: Top Rated is hardcoded, find better solution
+    author.getSortDropdown().should("contain", sortingOption);
 
     // Validating that author's top rated work is "Harry Potter and the Prisoner of Azkaban"
-    author.validateFirstResultBookTitle(
-      "Harry Potter and the Prisoner of Azkaban" // TODO: Top Rated is hardcoded, find better solution
-    );
+    author.validateFirstResultBookTitle(expectedBookTitle);
   });
 
   // it('Retrieve No books directly matched your search', () => {})

@@ -52,6 +52,11 @@ class AdvancedSearch {
       publisher: this.getPublisherField(),
     };
 
+    /**
+     * Looping through the key-value pair of the parameter - fields object
+     * If the value is not empty and a matching field selector exists,
+     * it will perform the type of the value into the corresponding input field.
+     */
     Object.entries(fields).forEach(([key, value]) => {
       if (value && advancedSearchFieldSelectors[key]) {
         advancedSearchFieldSelectors[key].type(value);
