@@ -1,12 +1,12 @@
-#### Technical Assessment for Test Engineer – Renz Escalera
+## Technical Assessment for Test Engineer – Renz Escalera
 
 - This is the technical assessment submission for the Test Engineer position by Renz Escalera. The test automation framework is built using Cypress, a modern JavaScript-based test automation tool.
 
-#### Why Cypress?
+## Why Cypress?
 
 - I selected Cypress for this assessment due to its developer-friendly approach, seamless support for both UI and API testing, and robust debugging capabilities. My decision is based on both my experience with Cypress and its technical advantages.
 
-#### Key Benefits of Cypress
+## Key Benefits of Cypress
 
 - API & UI Testing: Cypress allows efficient testing of both backend APIs (cy.request()) and frontend UI interactions in a single framework.
 - Fast Execution & Real-Time Debugging: Runs directly in the browser, making tests faster and easier to debug.
@@ -14,7 +14,7 @@
 - Built-in Screenshots & Video Recording: Helps in debugging test failures without additional configuration.
 - Extensive Experience: I have hands-on and professional experience using Cypress for both API and UI automation, enabling me to follow best practices and efficient implementation.
 
-#### Folder Structure
+## Folder Structure
 
 1. **cypress/e2e**: Contains the spec files or test frameworks built with Cypress.
    `api-test.cy.js` - This file contains all the api e2e tests based on the assessment and other tests that covers negative test scenarios for the given endpoints.
@@ -32,7 +32,7 @@
 
 5. **cypress/page-objects**: This contains the selectors and functions that are used in the e2e tests.
 
-   # AdvancedSearchPage.js
+   #### AdvancedSearchPage.js
 
    - This class contains selectors and functions specifically used for Advanced Search page of the website.
      Selectors:
@@ -46,10 +46,11 @@
      `getSearchButton` - search button in the advanced search form
      Functions:
      `advancedSearch.fillAdvancedSearchForm` - This function is used to fill out the Advanced Search form by populating input fields with search parameters. In addition, it has an error handling that checks if the argument used is not an object, then it will throw an error message.
-     @parameter: fields (Object) - Contains data in key-value pairs for advance search form
-     @example usage: advancedSearch.fillAdvancedSearchForm({ title: "JavaScript", author: "John Doe" });
 
-   # AuthorPage.js
+     - parameter: fields (Object) - Contains data in key-value pairs for advance search form
+     - example usage: advancedSearch.fillAdvancedSearchForm({ title: "JavaScript", author: "John Doe" });
+
+   #### AuthorPage.js
 
    - This class contains selectors and functions specifically used for Author page of the website. The Author page displays books/works and the information of the specific author.
      Selectors:
@@ -58,21 +59,25 @@
 
      Functions:
      `sortWorksByOptions` - This function takes a parameter as a selected option for sorting. It clicks on the sort dropdown then select a chosen option. It also has an error handling that let you know if you use an invalid choice and provides you the right options to choose from.
-     @parameter: option (String) - Contains the option that will be selected in the sorting dropdown
-     @example usage: author.sortWorksByOptions("Most Recent");
-     `validateFirstResultBookTitle` - This function validates the first title of the book
-     @parameter: title (String) - Contains the expected title of the first book that will be validated
-     @example usage: author.validateFirstResultBookTitle("Harry Potter");
 
-   # GeneratedTestDataManager.js
+     - parameter: option (String) - Contains the option that will be selected in the sorting dropdown
+     - example usage: author.sortWorksByOptions("Most Recent");
+
+     `validateFirstResultBookTitle` - This function validates the first title of the book
+
+     - parameter: title (String) - Contains the expected title of the first book that will be validated
+     - example usage: author.validateFirstResultBookTitle("Harry Potter");
+
+   #### GeneratedTestDataManager.js
 
    - This class contains a function that generates an alphanumeric string. The length of the generated string is based on the given parameter
      Functions:
      `generateRandomString` - This function generates a random string based on the given number of length
-     @parameter: length (Number) - The length of the random alphanumberic string that will be generated
-     @example usage: generateTestData.generateRandomString(8)
 
-   # LogInPage.js
+     - parameter: length (Number) - The length of the random alphanumberic string that will be generated
+     - example usage: generateTestData.generateRandomString(8)
+
+   #### LogInPage.js
 
    - This class contains the selectors and functions that are used in the Log In page.
      Selectors:
@@ -83,14 +88,15 @@
 
      Functions:
      `performLogIn` - This function performs the entire Log In process from filling out username and password input field and clicking the log in button. It take an object as a parameter that contains the login details and it also has an error handling that it throws an error if it is not a valid parameter.
-     @parameter: credentials (Object) - Contains the log in credentials such as username and password in a key-value pair format or JSON object format
-     @example usage: logIn.performLogIn({username: 'fakeEmail@test.com', password: 'Pass123'})
 
-   # PageIndex.js
+     - parameter: credentials (Object) - Contains the log in credentials such as username and password in a key-value pair format or JSON object format
+     - example usage: logIn.performLogIn({username: 'fakeEmail@test.com', password: 'Pass123'})
+
+   #### PageIndex.js
 
    - Serves as a centralized entry point for importing, exporting and creating instances of the page-objects.
 
-   # SearchBooksPage.js
+   #### SearchBooksPage.js
 
    - This class contains the selectors that are used in Search Books page
      Selectors:
@@ -99,29 +105,32 @@
 
 6. **cypress/commands**: This contains the generic reusable cypress custom commands that could be used in all e2e tests. As of the moment, it contains the functions that are used in the api-test suite.
 
-   # customApiRequest
+   #### customApiRequest
 
    - This function make a custom API request. This is used for cypress to make a certain api request call. For POST and PUT call, a request body object is only passed in upon api call.
-     @parameter: requestObject (Object) - Contains the method, nedpoint, and body of the api request
-     @example usage: cy.customApiRequest({method: 'GET', endpoint: '/sample-endpoint'})
 
-   # searchBookTitleThenValidateAuthorWebsiteAndKey
+     - parameter: requestObject (Object) - Contains the method, nedpoint, and body of the api request
+     - example usage: cy.customApiRequest({method: 'GET', endpoint: '/sample-endpoint'})
+
+   #### searchBookTitleThenValidateAuthorWebsiteAndKey
 
    - This function performs a series of API requests to search for a book by its title, retrieves the author's data using author's key, and validates certain data of the response such as the Author's website and key. If the author does not have a website, cypress will log that there is no available website for the autor. The test data used in its test can be found cypress/fixtures/books-data.json
-     @parameters:
-     bookTitle (String) - title of the book
-     author (String) - Author of the book
-     expectedWebsite (String) - Website of the Author
-     @example usage: cy.searchBookTitleThenValidateAuthorWebsiteAndKey("Rich Dad, Poor Dad", "Robert Kiyosaki", "http://www.richdad.com");
 
-#### How to setup the environment variables
+     - parameters:
+       bookTitle (String) - title of the book
+       author (String) - Author of the book
+       expectedWebsite (String) - Website of the Author
+
+       - example usage: cy.searchBookTitleThenValidateAuthorWebsiteAndKey("Rich Dad, Poor Dad", "Robert Kiyosaki", "http://www.richdad.com");
+
+## How to setup the environment variables
 
 - Inside of the .env file in the root folder contains the necessary environment variables such as base url, username, and password.
 - username and passowrd are not currently setup for security purposes. Follow the example below to correctly set it up:
   `USER_NAME=fakeEmail@test.com`
   `PASSWORD=Password123`
 
-#### Setting Up and Running Cypress Tests
+## Setting Up and Running Cypress Tests
 
 1. Clone the repository using the command: `git clone https://github.com/renzescalera/renz-assessment-test-engineer.git`
 2. Navigate to the project folder - Example: `cd C:\users\your-computer\renz-assessment-test-engineer`
@@ -131,7 +140,7 @@
    - To run Cypress UI: `npx cypress open`
    - To run Cypress in headless mode: `npx cypress run`
 
-#### Test Reports
+## Test Reports
 
 - The Test Reports can be found in this file path: \renz-assessment-test-engineer\cypress\reports
 - This contains all test execution report of each test cases or it blocks. Below is the identifier which test report file contains a specific test.
