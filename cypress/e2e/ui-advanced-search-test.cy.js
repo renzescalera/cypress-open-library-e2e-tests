@@ -7,7 +7,7 @@ import {
 
 // TODO: don't forget: The framework should produce proper test reports.
 
-describe("UI e2e test", () => {
+describe("Advanced Search UI e2e test", () => {
   beforeEach(() => {
     cy.visit("/advancedsearch");
     cy.intercept("GET", "/lists/partials.json").as("partials");
@@ -49,7 +49,7 @@ describe("UI e2e test", () => {
   });
 
   it("Should get an error message by retrieving a non-existent book using advanced search", () => {
-    // Random strings are used to advanced search
+    // Generated random strings are used to advanced search
     const invalidAdvancedSearchDataObject = {
       isbn: generateTestData.generateRandomString(5),
       subject: generateTestData.generateRandomString(3),
