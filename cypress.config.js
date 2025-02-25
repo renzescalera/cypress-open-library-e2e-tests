@@ -12,6 +12,8 @@ module.exports = defineConfig({
 
     env: {
       base_url: process.env.BASE_URL,
+      user_name: process.env.USER_NAME,
+      password: process.env.PASSWORD,
     },
   },
 });
