@@ -5,7 +5,7 @@ dotenv.config();
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "https://openlibrary.org", // TODO: Find better solution than this
+    baseUrl: process.env.BASE_URL,
     defaultCommandTimeout: 10000,
     viewportWidth: 1600,
     viewportHeight: 1200,
