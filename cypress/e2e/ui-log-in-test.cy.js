@@ -19,6 +19,7 @@ describe("Log in UI e2e test", () => {
   it("Should be able to log in with valid credentials", () => {
     logIn.performLogIn(validCredentials);
 
+    // Validating the url: /people/**/books
     cy.url().should("contain", "people").and("contain", "books");
     logIn.getErrorMessage().should("not.exist");
   });
@@ -26,6 +27,7 @@ describe("Log in UI e2e test", () => {
   it("Should not be able to log in with invalid credentials", () => {
     logIn.performLogIn(invalidCredentials);
 
+    // Validating the error message upon login with wrong credentials
     logIn
       .getErrorMessage()
       .should("be.visible")

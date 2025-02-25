@@ -4,6 +4,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 module.exports = defineConfig({
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: true,
+  },
   e2e: {
     baseUrl: process.env.BASE_URL,
     defaultCommandTimeout: 10000,

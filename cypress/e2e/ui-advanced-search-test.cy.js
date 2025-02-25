@@ -5,8 +5,6 @@ import {
   searchBooks,
 } from "../support/page-objects/PageIndex";
 
-// TODO: don't forget: The framework should produce proper test reports.
-
 describe("Advanced Search UI e2e test", () => {
   beforeEach(() => {
     cy.visit("/advancedsearch");
