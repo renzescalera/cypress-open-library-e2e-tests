@@ -4,6 +4,10 @@ class GeneratedTestDataManager {
   }
 
   generateRandomString(length) {
+    if (isNaN(length) || 0 >= length) {
+      throw new Error("Invalid input: Pass a valid number only");
+    }
+
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
