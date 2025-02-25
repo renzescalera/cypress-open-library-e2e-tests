@@ -16,7 +16,7 @@
 
 ## How to setup the environment variables
 
-- Inside of the .env file in the root folder contains the necessary environment variables such as base url, username, and password.
+- Inside of the `.env` file in the root folder contains the necessary environment variables such as base url, username, and password.
 - username and passowrd are not currently setup for security purposes. Follow the example below to correctly set it up:
   `USER_NAME=fakeEmail@test.com`
   `PASSWORD=Password123`
@@ -28,12 +28,16 @@
 3. Install dependencies using the command: `npm install`
    - After installation, use the command: `npm -v` this confirms successful installation
 4. Now Cypress can run using the command below:
+
    - To run Cypress UI: `npx cypress open`
    - To run Cypress in headless mode: `npx cypress run`
+
+   **IF upon running cypress, you see an error like: "No version of Cypress is installed", run: `npx cypress install`**
 
 ## Test Reports
 
 - The Test Reports can be found in this file path: \renz-assessment-test-engineer\cypress\reports
+- Test Reports are generated when tests are ran in headless mode or using the command: `npx cypress run`
 - This contains all test execution report of each test cases or it blocks. Below is the identifier which test report file contains a specific test.
 
 1. mochawesome.html - This contains the test report for the api-test.cy.js
