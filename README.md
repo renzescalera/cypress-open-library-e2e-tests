@@ -1,6 +1,18 @@
-#### Overview
+#### Technical Assessment for Test Engineer – Renz Escalera
 
-// TODO: WIP
+- This is the technical assessment submission for the Test Engineer position by Renz Escalera. The test automation framework is built using Cypress, a modern JavaScript-based test automation tool.
+
+#### Why Cypress?
+
+- I selected Cypress for this assessment due to its developer-friendly approach, seamless support for both UI and API testing, and robust debugging capabilities. My decision is based on both my experience with Cypress and its technical advantages.
+
+#### Key Benefits of Cypress
+
+- API & UI Testing: Cypress allows efficient testing of both backend APIs (cy.request()) and frontend UI interactions in a single framework.
+- Fast Execution & Real-Time Debugging: Runs directly in the browser, making tests faster and easier to debug.
+- Automatic Waits & Reduced Flakiness: No need for explicit waits or sleep commands, ensuring more reliable tests.
+- Built-in Screenshots & Video Recording: Helps in debugging test failures without additional configuration.
+- Extensive Experience: I have hands-on and professional experience using Cypress for both API and UI automation, enabling me to follow best practices and efficient implementation.
 
 #### Folder Structure
 
@@ -109,9 +121,15 @@
   `USER_NAME=fakeEmail@test.com`
   `PASSWORD=Password123`
 
-#### How to run this Cypress tests
+#### Setting Up and Running Cypress Tests
 
-// TODO: WIP
+1. Clone the repository using the command: `git clone https://github.com/renzescalera/renz-assessment-test-engineer.git`
+2. Navigate to the project folder - Example: `cd C:\users\your-computer\renz-assessment-test-engineer`
+3. Install dependencies using the command: `npm install`
+   - After installation, use the command: `npm -v` this confirms successful installation
+4. Now Cypress can run using the command below:
+   - To run Cypress UI: `npx cypress open`
+   - To run Cypress in headless mode: `npx cypress run`
 
 #### Test Reports
 
@@ -121,3 +139,5 @@
 1. mochawesome.html - This contains the test report for the api-test.cy.js
 2. mochawesome_001.html - This contains the test report for ui-advanced-search-test.cy.js
 3. mochawesome_002.html - This contains the test report for ui-log-in-test.cy.js
+
+- Mochawesome for HTML reports can also be viewed using the command: `npx mochawesome-report-generator cypress/reports/mochawesome.json`
