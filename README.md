@@ -14,6 +14,34 @@
 - Built-in Screenshots & Video Recording: Helps in debugging test failures without additional configuration.
 - Extensive Experience: I have hands-on and professional experience using Cypress for both API and UI automation, enabling me to follow best practices and efficient implementation.
 
+## How to setup the environment variables
+
+- Inside of the .env file in the root folder contains the necessary environment variables such as base url, username, and password.
+- username and passowrd are not currently setup for security purposes. Follow the example below to correctly set it up:
+  `USER_NAME=fakeEmail@test.com`
+  `PASSWORD=Password123`
+
+## Setting Up and Running Cypress Tests
+
+1. Clone the repository using the command: `git clone https://github.com/renzescalera/renz-assessment-test-engineer.git`
+2. Navigate to the project folder - Example: `cd C:\users\your-computer\renz-assessment-test-engineer`
+3. Install dependencies using the command: `npm install`
+   - After installation, use the command: `npm -v` this confirms successful installation
+4. Now Cypress can run using the command below:
+   - To run Cypress UI: `npx cypress open`
+   - To run Cypress in headless mode: `npx cypress run`
+
+## Test Reports
+
+- The Test Reports can be found in this file path: \renz-assessment-test-engineer\cypress\reports
+- This contains all test execution report of each test cases or it blocks. Below is the identifier which test report file contains a specific test.
+
+1. mochawesome.html - This contains the test report for the api-test.cy.js
+2. mochawesome_001.html - This contains the test report for ui-advanced-search-test.cy.js
+3. mochawesome_002.html - This contains the test report for ui-log-in-test.cy.js
+
+- Mochawesome for HTML reports can also be viewed using the command: `npx mochawesome-report-generator cypress/reports/mochawesome.json`
+
 ## Folder Structure
 
 1. **cypress/e2e**: Contains the spec files or test frameworks built with Cypress.
@@ -35,20 +63,23 @@
    #### AdvancedSearchPage.js
 
    - This class contains selectors and functions specifically used for Advanced Search page of the website.
-     Selectors:
-     `getTitleField` - Title input field in the advanced search form
-     `getAuthorField` - Author input field in the advanced search form
-     `getIsbnField` - ISBN input field in the advanced search form
-     `getSubjectField` - Subject input field in the advanced search form
-     `getPlaceField` - Place input field in the advanced search form
-     `getPersonField` - Person input field in the advanced search form
-     `getPublisherField` - Publisher input field in the advanced search form
-     `getSearchButton` - search button in the advanced search form
-     Functions:
-     `advancedSearch.fillAdvancedSearchForm` - This function is used to fill out the Advanced Search form by populating input fields with search parameters. In addition, it has an error handling that checks if the argument used is not an object, then it will throw an error message.
 
-     - parameter: fields (Object) - Contains data in key-value pairs for advance search form
-     - example usage: advancedSearch.fillAdvancedSearchForm({ title: "JavaScript", author: "John Doe" });
+     - Selectors:
+       - `getTitleField` - Title input field in the advanced search form
+       - `getAuthorField` - Author input field in the advanced search form
+       - `getIsbnField` - ISBN input field in the advanced search form
+       - `getSubjectField` - Subject input field in the advanced search form
+       - `getPlaceField` - Place input field in the advanced search form
+       - `getPersonField` - Person input field in the advanced search form
+       - `getPublisherField` - Publisher input field in the advanced search form
+     - `getSearchButton` - search button in the advanced search form
+
+     - Functions:
+
+       - `advancedSearch.fillAdvancedSearchForm` - This function is used to fill out the Advanced Search form by populating input fields with search parameters. In addition, it has an error handling that checks if the argument used is not an object, then it will throw an error message.
+
+       - parameter: fields (Object) - Contains data in key-value pairs for advance search form
+       - example usage: advancedSearch.fillAdvancedSearchForm({ title: "JavaScript", author: "John Doe" });
 
    #### AuthorPage.js
 
@@ -122,31 +153,3 @@
        expectedWebsite (String) - Website of the Author
 
        - example usage: cy.searchBookTitleThenValidateAuthorWebsiteAndKey("Rich Dad, Poor Dad", "Robert Kiyosaki", "http://www.richdad.com");
-
-## How to setup the environment variables
-
-- Inside of the .env file in the root folder contains the necessary environment variables such as base url, username, and password.
-- username and passowrd are not currently setup for security purposes. Follow the example below to correctly set it up:
-  `USER_NAME=fakeEmail@test.com`
-  `PASSWORD=Password123`
-
-## Setting Up and Running Cypress Tests
-
-1. Clone the repository using the command: `git clone https://github.com/renzescalera/renz-assessment-test-engineer.git`
-2. Navigate to the project folder - Example: `cd C:\users\your-computer\renz-assessment-test-engineer`
-3. Install dependencies using the command: `npm install`
-   - After installation, use the command: `npm -v` this confirms successful installation
-4. Now Cypress can run using the command below:
-   - To run Cypress UI: `npx cypress open`
-   - To run Cypress in headless mode: `npx cypress run`
-
-## Test Reports
-
-- The Test Reports can be found in this file path: \renz-assessment-test-engineer\cypress\reports
-- This contains all test execution report of each test cases or it blocks. Below is the identifier which test report file contains a specific test.
-
-1. mochawesome.html - This contains the test report for the api-test.cy.js
-2. mochawesome_001.html - This contains the test report for ui-advanced-search-test.cy.js
-3. mochawesome_002.html - This contains the test report for ui-log-in-test.cy.js
-
-- Mochawesome for HTML reports can also be viewed using the command: `npx mochawesome-report-generator cypress/reports/mochawesome.json`
