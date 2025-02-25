@@ -7,7 +7,7 @@ Cypress.Commands.add("customApiRequest", (requestObject) => {
     failOnStatusCode: false,
   };
 
-  // If it is not a GET call, no request body will be passed in
+  // If it is a GET call, no request body will be passed in
   if (method !== "GET") {
     requestPayload.body = body;
   }
