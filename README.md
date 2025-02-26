@@ -49,14 +49,16 @@
 ## Folder Structure
 
 1.  **cypress/e2e**: Contains the spec files or test frameworks built with Cypress.
-    `api-test.cy.js` - This file contains all the api e2e tests based on the assessment and other tests that covers negative test scenarios for the given endpoints.
 
-    `ui-advanced-search-test.cy.js` - This contains the tests for ui on advanced search feature. It also covers the negative test sceanrio of it.
+    - `api-test.cy.js` - This file contains all the api e2e tests based on the assessment and other tests that covers negative test scenarios for the given endpoints.
 
-    `ui-log-in-test.cy.js` - An additional tests for the log in functionality of the website. It also tests that user will not be able to log in successfully with a wrong log in credentials.
+    - `ui-advanced-search-test.cy.js` - This contains the tests for ui on advanced search feature. It also covers the negative test sceanrio of it.
+
+    - `ui-log-in-test.cy.js` - An additional tests for the log in functionality of the website. It also tests that user will not be able to log in successfully with a wrong log in credentials.
 
 2.  **cypress/fixtures**: Storage of the static data files which is in JSON format.
-    `books-data.json` - This contains the test data for the advanced search ui test. It holds the data for title, author, and website that are used for advanced searching.
+
+    - `books-data.json` - This contains the test data for the advanced search ui test. It holds the data for title, author, and website that are used for advanced searching.
 
 3.  **cypress/reports**: This contains the test reports of all api and ui tests
 
