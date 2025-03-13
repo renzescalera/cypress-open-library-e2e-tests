@@ -4,11 +4,11 @@
 
 ## Key Features
 
-✅ UI Test Automation – Covers end-to-end testing of web applications using Cypress, including interaction with elements, assertions, and custom commands.
-✅ API Test Automation – Includes API testing with Cypress, validating request/response handling, authentication, and data assertions.
-✅ Best Practices – Follows modular test design, reusable functions, and structured test cases for maintainability.
-✅ CI/CD Integration – Configured to run tests in a continuous integration pipeline.
-✅ Custom Commands & Plugins – Utilizes Cypress commands and plugins to enhance automation capabilities.
+- UI Test Automation – Covers end-to-end testing of web applications using Cypress, including interaction with elements, assertions, and custom commands.
+- API Test Automation – Includes API testing with Cypress, validating request/response handling, authentication, and data assertions.
+- Best Practices – Follows modular test design, reusable functions, and structured test cases for maintainability.
+- CI/CD Integration – Configured to run tests in a continuous integration pipeline.
+- Custom Commands & Plugins – Utilizes Cypress commands and plugins to enhance automation capabilities.
 
 ## Key Benefits of Cypress
 
