@@ -1,10 +1,14 @@
-## Technical Assessment for Test Engineer – Renz Escalera
+## Overview
 
-- This is the technical assessment submission for the Test Engineer position by Renz Escalera. The test automation framework is built using Cypress, a modern JavaScript-based test automation tool.
+- This repository showcases my skills in Cypress for both UI and API test automation. It includes test scripts, configurations, and best practices for end-to-end testing of web applications and API endpoints. The goal is to demonstrate my ability to write reliable, scalable, and maintainable test automation solutions using Cypress.
 
-## Why Cypress?
+## Key Features
 
-- I selected Cypress for this assessment due to its developer-friendly approach, seamless support for both UI and API testing, and robust debugging capabilities. My decision is based on both my experience with Cypress and its technical advantages.
+✅ UI Test Automation – Covers end-to-end testing of web applications using Cypress, including interaction with elements, assertions, and custom commands.
+✅ API Test Automation – Includes API testing with Cypress, validating request/response handling, authentication, and data assertions.
+✅ Best Practices – Follows modular test design, reusable functions, and structured test cases for maintainability.
+✅ CI/CD Integration – Configured to run tests in a continuous integration pipeline.
+✅ Custom Commands & Plugins – Utilizes Cypress commands and plugins to enhance automation capabilities.
 
 ## Key Benefits of Cypress
 
